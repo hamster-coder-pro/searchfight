@@ -17,17 +17,17 @@ namespace SearchFight.Common.Services
             ServiceProvider = serviceProvider;
         }
 
-        public ISearchReportBuilder<TSearchResult, TAggregate> CreateReportBuilder<TSearchResult, TAggregate>()
+        public ISearchReportBuilder<TSearchResult, TReport> CreateReportBuilder<TSearchResult, TReport>()
             where TSearchResult : ISearchResultModel
-            where TAggregate : ISearchReportModel
+            where TReport : ISearchReportModel
         {
             try
             {
-                return ServiceProvider.GetRequiredService<ISearchReportBuilder<TSearchResult, TAggregate>>();
+                return ServiceProvider.GetRequiredService<ISearchReportBuilder<TSearchResult, TReport>>();
             }
             catch (Exception exception)
             {
-                throw new SearchException($"Search Aggregator from \"{typeof(TSearchResult).FullName}\" to \"{typeof(TAggregate).FullName}\" not found.", exception);
+                throw new SearchException($"Report Builder from \"{typeof(TSearchResult)}\" to \"{typeof(TReport)}\" not found.", exception);
             }
         }
 
@@ -41,7 +41,7 @@ namespace SearchFight.Common.Services
             }
             catch (Exception exception)
             {
-                throw new SearchException($"Unexpected exception of getting Data \"{typeof(TRequest)}\" searchers.", exception);
+                throw new SearchException($"Error resolving search providers from \"{typeof(TRequest)}\" to \"{typeof(TResult)}\".", exception);
             }
         }
 
@@ -54,7 +54,7 @@ namespace SearchFight.Common.Services
             }
             catch (Exception exception)
             {
-                throw new SearchException($"Report Provider \"{typeof(TReport).FullName}\" not found.", exception);
+                throw new SearchException($"Error resolving report providers for \"{typeof(TReport)}\".", exception);
             }
         }
     }

@@ -24,8 +24,8 @@ namespace SearchFight.Services.Services
         {
             string line = string.Concat(Enumerable.Repeat("-", 30));
 
-            System.Console.WriteLine(line);
-            System.Console.WriteLine("RESULTS PER KEYWORD");
+            Console.WriteLine(line);
+            Console.WriteLine("RESULTS PER KEYWORD");
             foreach (var item in report.KeywordCollection)
             {
                 var stringBuilder = new StringBuilder();
@@ -35,19 +35,19 @@ namespace SearchFight.Services.Services
                     stringBuilder.Append($" {result.SearchEngine,-10} - {(result.ResultCount == -1 ? "ERR" : result.ResultCount.ToString()),10} |");
                 }
 
-                System.Console.WriteLine(stringBuilder);
+                Console.WriteLine(stringBuilder);
             }
 
-            System.Console.WriteLine();
-            System.Console.WriteLine("WINNERS PER SEARCH ENGINE");
+            Console.WriteLine();
+            Console.WriteLine("WINNERS PER SEARCH ENGINE");
             foreach (var perSearchEngine in report.KeywordPerSearchEngineWinnerCollection)
             {
-                System.Console.WriteLine($"{perSearchEngine.SearchEngine} winner: {perSearchEngine.Keyword}");
+                Console.WriteLine($"{perSearchEngine.SearchEngine} winner: {perSearchEngine.Keyword}");
             }
 
-            System.Console.WriteLine();
-            System.Console.WriteLine($"TOTAL WINNER: {report.TotalWinnerKeyword}");
-            System.Console.WriteLine(line);
+            Console.WriteLine();
+            Console.WriteLine($"TOTAL WINNER: {report.TotalWinnerKeyword}");
+            Console.WriteLine(line);
 
             return Task.CompletedTask;
         }

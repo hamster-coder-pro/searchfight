@@ -18,13 +18,13 @@ namespace SearchFight.Tests
             var serviceCollection = new ServiceCollection();
             var reporter1 = new Mock<ISearchReportProvider<ISearchReportModel>>();
             var reporter2 = new Mock<ISearchReportProvider<ISearchReportModel>>();
-            serviceCollection.AddTransient<ISearchReportProvider<ISearchReportModel>>(sp => reporter1.Object);
-            serviceCollection.AddTransient<ISearchReportProvider<ISearchReportModel>>(sp => reporter2.Object);
+            serviceCollection.AddTransient(sp => reporter1.Object);
+            serviceCollection.AddTransient(sp => reporter2.Object);
             var serviceProvider = serviceCollection.BuildServiceProvider();
 
             var factory = new MicrosoftDependencyInjectionSearchServiceFactory(serviceProvider);
             var result = factory.CreateReportProvider<ISearchReportModel>();
-            CollectionAssert.AreEquivalent(new ISearchReportProvider<ISearchReportModel>[] { reporter1.Object, reporter2.Object }, result);
+            CollectionAssert.AreEquivalent(new[] { reporter1.Object, reporter2.Object }, result);
         }
 
         [Test]
@@ -45,8 +45,8 @@ namespace SearchFight.Tests
             var serviceCollection = new ServiceCollection();
             var expected1 = new Mock<ISearchProvider<ISearchRequestModel, ISearchResultModel>>();
             var expected2 = new Mock<ISearchProvider<ISearchRequestModel, ISearchResultModel>>();
-            serviceCollection.AddTransient<ISearchProvider<ISearchRequestModel, ISearchResultModel>>(sp => expected1.Object);
-            serviceCollection.AddTransient<ISearchProvider<ISearchRequestModel, ISearchResultModel>>(sp => expected2.Object);
+            serviceCollection.AddTransient(sp => expected1.Object);
+            serviceCollection.AddTransient(sp => expected2.Object);
             var serviceProvider = serviceCollection.BuildServiceProvider();
 
             var factory = new MicrosoftDependencyInjectionSearchServiceFactory(serviceProvider);
@@ -70,7 +70,7 @@ namespace SearchFight.Tests
         {
             var serviceCollection = new ServiceCollection();
             var expected1 = new Mock<ISearchReportBuilder<ISearchResultModel, ISearchReportModel>>();
-            serviceCollection.AddTransient<ISearchReportBuilder<ISearchResultModel, ISearchReportModel>>(sp => expected1.Object);
+            serviceCollection.AddTransient(sp => expected1.Object);
             var serviceProvider = serviceCollection.BuildServiceProvider();
 
             var factory = new MicrosoftDependencyInjectionSearchServiceFactory(serviceProvider);

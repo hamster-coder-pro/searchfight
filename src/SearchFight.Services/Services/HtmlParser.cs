@@ -33,7 +33,7 @@ namespace SearchFight.Services.Services
 
             if (startIndex == text.Length)
             {
-                throw new DataSearcherException($"Error parsing html: No text after found tag");
+                throw new DataSearcherException("Error parsing html: No text after found tag");
             }
 
             return startIndex;

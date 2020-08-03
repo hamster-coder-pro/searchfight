@@ -49,17 +49,17 @@ namespace SearchFight.Tests
                     "test"
                     , new[]
                     {
-                        new SearchFightReportModel.SearchResultsPerKeywordModel.SearchResultModel()
+                        new SearchFightReportModel.SearchResultsPerKeywordModel.SearchResultModel
                         {
                             ResultCount = 10
                             , SearchEngine = "Google"
                         }
-                        , new SearchFightReportModel.SearchResultsPerKeywordModel.SearchResultModel()
+                        , new SearchFightReportModel.SearchResultsPerKeywordModel.SearchResultModel
                         {
                             ResultCount = 20
                             , SearchEngine = "MSN"
                         }
-                        , new SearchFightReportModel.SearchResultsPerKeywordModel.SearchResultModel()
+                        , new SearchFightReportModel.SearchResultsPerKeywordModel.SearchResultModel
                         {
                             ResultCount = -1
                             , SearchEngine = "Yahoo"

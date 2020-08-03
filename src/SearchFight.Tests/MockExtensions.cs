@@ -23,7 +23,7 @@ namespace SearchFight.Tests
                     ItExpr.IsAny<CancellationToken>()
                 )
                 // prepare the expected response of the mocked http call
-                .ReturnsAsync(new HttpResponseMessage()
+                .ReturnsAsync(new HttpResponseMessage
                 {
                     StatusCode = statusCode,
                     Content = new StringContent(stringContent),

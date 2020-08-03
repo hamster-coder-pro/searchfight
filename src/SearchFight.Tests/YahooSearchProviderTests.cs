@@ -135,7 +135,7 @@ namespace SearchFight.Tests
             var loggerMock = new Mock<ILogger<YahooSearchProvider>>();
 
             var httpClientFactoryMock = new Mock<IHttpClientFactory>();
-            var element = $"<div class=\"compPagination\" ><span id=\"yui_3_10_0_1_1596410179970_452\">247,000,000 results</span></div>";
+            var element = "<div class=\"compPagination\" ><span id=\"yui_3_10_0_1_1596410179970_452\">247,000,000 results</span></div>";
             var httpHandlerMock = httpClientFactoryMock.SetupHttpClientResponse(KnownHttpClients.Yahoo, stringContent: element);
 
             var request = new SearchFightSearchRequestModel("test");

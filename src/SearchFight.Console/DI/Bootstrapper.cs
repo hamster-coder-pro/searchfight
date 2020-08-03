@@ -14,7 +14,7 @@ namespace SearchFight.Console.DI
             var serviceProvider = new ServiceCollection()
                 .AddLogging(builder => builder.ConfigureLogging())
                 .ConfigureServiceCollection()
-                .BuildServiceProvider(new ServiceProviderOptions()
+                .BuildServiceProvider(new ServiceProviderOptions
                 {
                     ValidateOnBuild = true, 
 #if DEBUG

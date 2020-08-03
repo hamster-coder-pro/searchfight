@@ -27,7 +27,7 @@ namespace SearchFight.Services.Services
                     group => new SearchFightReportModel.SearchResultsPerKeywordModel(
                         group.Key
                         , group.Select(
-                            x => new SearchFightReportModel.SearchResultsPerKeywordModel.SearchResultModel()
+                            x => new SearchFightReportModel.SearchResultsPerKeywordModel.SearchResultModel
                             {
                                 SearchEngine = x.SearchEngine
                                 , ResultCount = x.IsSucceed ? x.ResultCount : -1

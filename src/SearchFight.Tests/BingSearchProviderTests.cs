@@ -135,7 +135,7 @@ namespace SearchFight.Tests
             var loggerMock = new Mock<ILogger<BingSearchProvider>>();
 
             var httpClientFactoryMock = new Mock<IHttpClientFactory>();
-            var element = $"<span class=\"sb_count\" data-bm=\"4\">результаты: 247,000,000</span>";
+            var element = "<span class=\"sb_count\" data-bm=\"4\">результаты: 247,000,000</span>";
             var httpHandlerMock = httpClientFactoryMock.SetupHttpClientResponse(KnownHttpClients.Bing, stringContent: element);
 
             var request = new SearchFightSearchRequestModel("test");
