@@ -1,0 +1,11 @@
+{
+  "profiles": {
+    "SearchFlight.Console": {
+      "commandName": "Project"
+    },
+    "Debug #1": {
+      "commandName": "Project",
+      "commandLineArgs": "\"Oleg Gochachko\" \"Olga Valkovskaya\" .net java hamster-coder-pro"
+    }
+  }
+}
