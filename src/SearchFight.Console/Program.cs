@@ -30,7 +30,7 @@ namespace SearchFight.Console
                 return;
             }
 
-            await application.Execute(args);
+            await application.ExecuteAsync(args);
 
             ExitApplication(args);
         }

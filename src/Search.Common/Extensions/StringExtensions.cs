@@ -16,6 +16,11 @@ namespace Search.Common.Extensions
 
         public static int AfterIndexOf(this string input, string value, int startIndex, StringComparison stringComparison)
         {
+            if (input == null)
+            {
+                throw new ArgumentNullException(nameof(input));
+            }
+
             var result = input.IndexOf(value, startIndex, stringComparison);
             if (result == -1)
             {
@@ -32,15 +37,25 @@ namespace Search.Common.Extensions
 
         public static string Copy(this string input, int startIndex, int endIndex)
         {
+            if (input == null)
+            {
+                throw new ArgumentNullException(nameof(input));
+            }
+
             if (endIndex >= input.Length)
             {
-                endIndex = input.Length - 1;
+                endIndex = input.Length;
             }
-            return input.Substring(startIndex, endIndex - startIndex);
+            return input[startIndex..endIndex];
         }
 
-        public static string Overflow(this string input, int length, string overflow = "...")
+        public static string Overflow(this string input, int length, string? overflow = "...")
         {
+            if (input == null)
+            {
+                throw new ArgumentNullException(nameof(input));
+            }
+
             if (overflow.Length > length)
             {
                 throw new ArgumentOutOfRangeException(nameof(length), "Should be not less than overflow string length.");

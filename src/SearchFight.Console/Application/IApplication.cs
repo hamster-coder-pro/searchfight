@@ -4,6 +4,6 @@ namespace SearchFight.Console.Application
 {
     internal interface IApplication
     {
-        Task<int> Execute(string[] args);
+        Task<int> ExecuteAsync(string[] args);
     }
 }

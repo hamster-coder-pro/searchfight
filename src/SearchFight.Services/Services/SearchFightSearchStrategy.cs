@@ -37,6 +37,7 @@ namespace SearchFight.Services.Services
 
         public override Task SearchAsync(SearchFightSearchParametersModel parameters)
         {
+            Logger.LogDebug($"{nameof(SearchAsync)} started...");
             if (parameters == null)
             {
                 throw new ArgumentNullException(nameof(parameters));

@@ -3,6 +3,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.Extensions.Logging;
 using Search.Common;
+using Search.Common.Extensions;
 using SearchFight.Services.Models;
 
 namespace SearchFight.Console.Application
@@ -18,12 +19,12 @@ namespace SearchFight.Console.Application
             Logger = logger;
         }
 
-        public async Task<int> Execute(string[] args)
+        public async Task<int> ExecuteAsync(string[] args)
         {
             Logger.Log(LogLevel.Information, "Application.Execute() started ...");
             try
             {
-                var keywords = args.Except(new[] {"--wait"}).ToArray();
+                var keywords = args.Safe().Except(new[] {"--wait"}).ToArray();
                 if (keywords.Length == 0)
                 {
                     keywords = new[] {"hamster-coder-pro"};
